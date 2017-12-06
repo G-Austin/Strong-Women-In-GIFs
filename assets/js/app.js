@@ -1,10 +1,12 @@
     
       // Initial array of people
-      var topics = ["Wonder Woman", "Michelle Obama", "Lady Gaga", "Beyonce", "Elizabeth Warren"];
+      var topics = ["Wonder Woman", "Michelle Obama", "James Dean", "Lady Gaga", "Beyonce", "Elizabeth Warren", "Channing Tatum"];
 
 
       //Endpoint to be used to call to get people. Contains API key as a parameter and cats
     function displayGifs() {
+      //This makes it so every time the button is clicked, it replaces what was there before.
+      $("#gifs-appear-here").empty();
 
       var topic = $(this).attr("data-name")  
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -18,6 +20,7 @@
       .done(function(response) {
 
           var results = response.data;
+          console.log(results);
 
           for (var i = 0; i < results.length; i++) {
             var gifDiv = $("<div class='item'>");
@@ -27,12 +30,15 @@
             var p = $("<p>").text("Rating: " + rating);
 
             var personImage = $("<img>");
-            personImage.attr("src", results[i].images.fixed_height.url);
+            personImage.attr("src", results[i].images.fixed_height_still.url);
+            personImage.attr("data-still", results[i].images.fixed_height_still.url)
+            personImage.attr("data-animate", results[i].images.fixed_height.url)
+            personImage.attr("data-state", "still")
+            personImage.addClass("gifPush")
+            gifDiv.prepend(p);
+            gifDiv.prepend(personImage);
 
-            gifDiv.append(p);
-            gifDiv.append(personImage);
-
-            $("#gifs-appear-here").append(gifDiv);
+            $("#gifs-appear-here").prepend(gifDiv);
           }
         });
     }
@@ -53,8 +59,9 @@
           $("#person-view").append(a);
         }
       }
+  $( document ).ready(function() {
 
-      // This function handles events where one button is clicked
+    // This function handles events where one button is clicked
       $("#add-person").on("click", function(event) {
         event.preventDefault();
 
@@ -68,6 +75,28 @@
       });
       // When the buttons are clicked, Gifs should appear.
       $(document).on("click", ".person", displayGifs);
+      //This listener recognizes whether the Gif is still or animated and changes it to the oppososite.
+      $(document).on("click", ".gifPush", function() {
+        
+        var state = $(this).attr("data-state");
+        var still = $(this).attr("data-still");
+        var animated = $(this).attr("data-animate");
+
+          if (state === "still") {
+
+            $(this).attr("src", animated);
+            
+            $(this).attr("data-state", "animate");
+          
+          }else {
+
+            $(this).attr("src", still);
+            // console.log($(this));
+            $(this).attr("data-state", "still")
+          }
+
+      });
+  });
 
       renderButtons();
     
