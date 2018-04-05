@@ -2,4 +2,4 @@
 
 Using jQuery, and AJAX the user is able to create buttons of keywords or names to retrieve GIF's from api.giphy.com. 
 
-Visit the app at https://g-austin.github.io/gif-api/
+Visit the app at https://g-austin.github.io/Strong-Women-In-GIFs/
