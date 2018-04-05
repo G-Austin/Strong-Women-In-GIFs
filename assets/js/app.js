@@ -1,6 +1,6 @@
     
 // Initial array of people
-var topics = ["Wonder Woman", "Michelle Obama", "James Dean", "Lady Gaga", "Beyonce", "Elizabeth Warren", "Channing Tatum"];
+var topics = ["Wonder Woman", "Michelle Obama", "Lady Gaga", "Beyonce", "Elizabeth Warren"];
 
 
 //Endpoint to be used to call to get people. Contains API key as a parameter and cats
