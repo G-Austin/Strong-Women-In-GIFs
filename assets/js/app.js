@@ -1,9 +1,9 @@
     
 // Initial array of people
-var topics = ["Wonder Woman", "Michelle Obama", "Lady Gaga", "Beyonce", "Elizabeth Warren"];
+var topics = ["Ruth Bader Ginsburg", "Wonder Woman", "Michelle Obama", "Lady Gaga", "Beyonce", "Elizabeth Warren", "Janelle Monae", "Malala Yousafzai", "Sarah Silverman", "Michelle Wolfe"];
 
 
-//Endpoint to be used to call to get people. Contains API key as a parameter and cats
+//Endpoint to be used to call to get people. Contains API key as a parameter
 function displayGifs() {
   //This makes it so every time the button is clicked, it replaces what was there before.
   $("#gifs-appear-here").empty();

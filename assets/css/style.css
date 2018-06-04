@@ -1,7 +1,33 @@
+.container {
+	background-color: dodgerblue;
+}
 #gifs-appear-here {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	background-color: dodgerblue;
+}
+
+.title {
+	text-align: center;
+	font-family: 'Arial Narrow', Arial, sans-serif
+}
+
+#person-view {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#person-form {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Arial Narrow', Arial, sans-serif
 }
